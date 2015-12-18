@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>属性</title>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+    /*
+    可以把属性看做组件的配置参数，类似于HTML属性。
+     */
+        var Photo = React.createClass({
+            render: function() {
+                return (
+                    <div className='photo'>
+                        <img src={this.props.imageURL} />
+                        <span>{this.props.caption}</span>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(<Photo imageURL='https://img.alicdn.com/tps/TB1niMmKVXXXXa4XVXXXXXXXXXX-520-280.jpg' caption='taobao' />,document.body);
+    </script>
+</body>
+</html>

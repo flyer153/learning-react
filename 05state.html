@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>状态</title>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+    /*
+    状态对象用来记录随时可能变化的数据
+    组件的状态给组件引入了一些复杂性
+     */
+    var Photo = React.createClass({
+        toggleLiked: function() {
+            this.setState({ //调用 setState 来切换 liked 的值
+                liked:!this.state.liked
+            });
+        },
+        getInitialState: function() { //组件初始化时React会调用这个函数。根据它返回的对象来设置组件的初始状态。
+            return {
+                liked:false
+            };
+        },
+        render: function() {
+            var buttonClass = this.state.liked ? 'active' : ''; //根据 liked 状态被标记为 'active' 或 空值
+            // buttonClass 也是 button的class名。这个按钮还将 toggleLiked 函数绑定到 onClick 事件上。
+            return (
+                <div className='photo'>
+                    <img src={this.props.src} />
+                    <div className='bar'>
+                        <button onClick={this.toggleLiked} className={buttonClass}></button>
+                        <span>{this.props.caption}</span>
+                    </div>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(<Photo src='https://img.alicdn.com/tps/TB1niMmKVXXXXa4XVXXXXXXXXXX-520-280.jpg' caption='taobao' />,document.body);
+    </script>
+</body>
+</html>

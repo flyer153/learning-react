@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>组件</title>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script> 
+</head>
+<body>
+    <script type="text/babel">
+    /*
+    组件是React的精髓所在。它们是自定义的 React 元素，通常有一些功能和结构定义。
+     */
+        var Photo = React.createClass({ //createClass函数接收一个对象，这个对象实现了 render 方法。
+            render: function() {
+                return <img src='https://img.alicdn.com/tps/TB1niMmKVXXXXa4XVXXXXXXXXXX-520-280.jpg' />
+            }
+        });
+        ReactDOM.render(<Photo />,document.body); //Photo组件定义了 <Photo />元素，并且渲染到 document.body 里。
+    </script>
+</body>
+</html>

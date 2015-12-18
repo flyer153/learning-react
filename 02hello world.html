@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>hello world</title>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script> <!-- 提供与 DOM 相关的功能 -->
+<script src="js/browser.min.js"></script> <!-- 将JSX语法转为js语法 -->
+</head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel"> //独有的JSX语法跟js不兼容。所有使用JSX的地方都需加type="text/babel" 
+     /* ReactDOM.render(
+        <div>hello,world!I am a CommentBox.</div>,
+        document.getElementById('content')
+      );*/
+       var CommentBox = React.createClass({
+            render: function() {
+                return (
+                    <div className='commentBox'>Hello, world! I am a CommentBox.</div>
+                );
+            }
+        });
+        ReactDOM.render(<CommentBox />,document.getElementById('content'));
+    </script>
+  </body>
+</html>
+   
+  </body>
+</html>
