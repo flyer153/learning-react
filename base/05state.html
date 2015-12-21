@@ -2,17 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>组合组件</title>
-<script src="js/react.js"></script>
-<script src="js/react-dom.js"></script>
-<script src="js/browser.min.js"></script>
+<title>状态</title>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
 </head>
 <body>
     <script type="text/babel">
     /*
-   将一些小的组件(components)链接起来形成一个大的组合组件。例如 Photo 组件可以用在 PhotoGallery 组件中，如下：
+    状态对象用来记录随时可能变化的数据
+    组件的状态给组件引入了一些复杂性
      */
-    
     var Photo = React.createClass({
         toggleLiked: function() {
             this.setState({ //调用 setState 来切换 liked 的值
@@ -38,36 +38,7 @@
             );
         }
     });
-    var PhotoGallery = React.createClass({
-        render: function() {
-            var photos = this.props.photos.map(function(photo) {
-                return <Photo src={photo.url} caption={photo.caption} />
-            });
-
-            return (
-                <div className='photo-gallery'>
-                    {photos}
-                </div>
-            );
-        }
-
-    });
-
-    var data = [
-        {
-            url:'https://img.alicdn.com/tps/TB1niMmKVXXXXa4XVXXXXXXXXXX-520-280.jpg',
-            caption:'banner1'
-        },
-        {
-            url:'https://img.alicdn.com/tps/i3/TB1oC2TKVXXXXcEXVXXvKyzTVXX-520-280.jpg',
-            caption:'banner2'
-        },
-        {
-            url:'https://aecpm.alicdn.com/simba/img/TB1xGQgJFXXXXXdXVXXSutbFXXX.jpg',
-            caption:'banner3'
-        }
-    ];
-    ReactDOM.render(<PhotoGallery photos={data} />,document.body);
+    ReactDOM.render(<Photo src='https://img.alicdn.com/tps/TB1niMmKVXXXXa4XVXXXXXXXXXX-520-280.jpg' caption='taobao' />,document.body);
     </script>
 </body>
 </html>
