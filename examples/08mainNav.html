@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>组件-导航</title>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+    <div id="mainnav"></div>
+    <script type="text/javascript">
+        var Menu = React.createClass({
+          render: function() {
+            var menus = ['Home',
+              'About',
+              'Services',
+              'Portfolio',
+              'Contact us'
+            ]
+            return React.createElement('div',
+              null,
+              menus.map(function(v, i) {
+                return React.createElement('div', {
+                    key: i
+                  },
+                  React.createElement(Link, {
+                    label: v
+                  })
+                )
+              })
+            )
+          }
+        })
+
+        var Link = React.createClass({
+          render: function() {
+            var url = '/' + this.props.label
+              .toLowerCase()
+              .trim()
+              .replace(' ', '-')
+            return React.createElement('div',
+              null,
+              React.createElement(
+                'a', {
+                  href: url
+                },
+                this.props.label
+              ),
+              React.createElement('br')
+            )
+          }
+        })
+
+        ReactDOM.render(
+          React.createElement(
+            Menu,
+            null
+          ),
+          document.getElementById('mainnav')
+        )
+
+    </script>
+</body>
+</html>
