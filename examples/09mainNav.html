@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>组件-导航</title>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+    <div id="mainnav"></div>
+    <script type="text/babel">
+        var Menu = React.createClass({
+            render: function(){
+              var menus = ['主页',
+                '关于我们',
+                '联系我们',
+                '产品介绍',
+                '帮助中心']
+              return (
+                <ul>
+                  {menus.map(function(v,i){
+                    return <li key={i}><Link label={v}/></li>
+                  })}
+                </ul>
+              )
+          }})
+
+          var Link = React.createClass({
+            render: function () {
+              var url='/'
+                + this.props.label
+                  .toLowerCase()
+                  .trim()
+                  .replace(' ', '-')
+              return <a href={url}>{this.props.label}</a>
+            }
+          })
+
+          ReactDOM.render(<Menu />, document.getElementById('mainnav'))
+
+
+    </script>
+</body>
+</html>
