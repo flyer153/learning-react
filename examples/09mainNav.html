@@ -6,42 +6,59 @@
 <script src="../build/react.js"></script>
 <script src="../build/react-dom.js"></script>
 <script src="../build/browser.min.js"></script>
-<style type="text/css">
-
-</style>
 </head>
 <body>
     <div id="mainnav"></div>
     <script type="text/babel">
+        window.isLoggedIn =true
         var Menu = React.createClass({
-            render: function(){
-              var menus = ['主页',
-                '关于我们',
-                '联系我们',
-                '产品介绍',
-                '帮助中心']
-              return (
-                <ul>
-                  {menus.map(function(v,i){
-                    return <li key={i}><Link label={v}/></li>
-                  })}
-                </ul>
-              )
-          }})
-
-          var Link = React.createClass({
-            render: function () {
-              var url='/'
-                + this.props.label
-                  .toLowerCase()
-                  .trim()
-                  .replace(' ', '-')
-              return <a href={url}>{this.props.label}</a>
+          getLoginLogout: function(){
+            if (window.isLoggedIn) return <a href='/logout'>Log out</a>
+            else return <a href='/login'>Log in</a>
+          },
+          render: function(){
+            var menus = ['Home',
+                'About',
+                'Services',
+                'Portfolio',
+                'Contact us'
+              ],
+              loginLogoutLink
+            if (window.isLoggedIn) {
+              loginLogoutLink = <a href="/logout">Log out</a>
+            } else {
+              loginLogoutLink = <a href="/login">Log in</a>
             }
-          })
+            return (
+              <div >
+                {menus.map(function(v,i){
+                  return <div key={i}><Link label={v}/></div>
+                })}
+                <div>Status: {window.isLoggedIn ? 'Logged in' : 'Logged out'}</div>
+                <div>{loginLogoutLink}</div>
+                <div>{function(){
+                  if (window.isLoggedIn) return <a href='/logout'>Log out</a>
+                  else return <a href='/login'>Log in</a>
+                  }()}
+                </div>
+                <div>{this.getLoginLogout()}</div>
+              </div>
+            )
+          }
+        })
 
-          ReactDOM.render(<Menu />, document.getElementById('mainnav'))
+        var Link = React.createClass({
+          render: function () {
+            var url='/'
+              + this.props.label
+                .toLowerCase()
+                .trim()
+                .replace(' ', '-')
+            return <a href={url}>{this.props.label}</a>
+          }
+        })
 
+        ReactDOM.render(<Menu />, document.getElementById('mainnav'))
 
     </script>
 </body>
