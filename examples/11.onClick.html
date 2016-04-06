@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件-onclick</title>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+      var Content = React.createClass({
+        getInitialState: function() {
+          return {counter: 0}
+        },
+        click: function(e) {
+          this.setState({counter: ++this.state.counter})
+        },
+        render: function() {
+          return (
+            <div>
+              <button onClick={this.click}>
+                Don't click me {this.state.counter} times!
+              </button>
+            </div>
+          )
+        }
+      })
+
+      ReactDOM.render(
+        <Content />,
+        document.getElementById('content')
+      );
+
+    </script>
+</body>
+</html>
