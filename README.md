@@ -2,10 +2,9 @@
 step by step learning react
 
 
-+ React不是完整的mvc框架？不太认可mvc的开发模式
++ React不是完整的mvc框架？不太认可mvc的开发模式，只是mvc种的v。
 + React不是一个新的模板语言，JSX只是一个表象，没有JSX的React也能工作。
 
-遇到的坑：
 有的文档写的使用 JSX的地方加上text/jsx，如：
 
     <script type="text/jsx"></script>
@@ -34,9 +33,9 @@ step by step learning react
 
 创建一个根目录，目录名：reactTest，再使用 npm init 初始化，生成 package.json 文件
 
-第三步、添加越来包及插件
+第三步、添加react包及插件
 
-因为我们要使用 React, 所以我们需要先安装它，--save 命令用于将包添加至 package.json 文件。
+--save 命令用于将包添加至 package.json 文件。
 
 	npm install react --save
 	npm install react-dom --save
@@ -49,21 +48,19 @@ step by step learning react
 	npm install babel-preset-es2015
 
 
-注：npm install 装不上的时候可以：npm --registry=http://r.cnpmjs.org install
-
-
+注：npm install 连不上时，可以用国内的地址：npm --registry=http://r.cnpmjs.org install
+报UNMET PEER DEPENDENCY错误时，可以 npm install 名称@版本 --save
 
 # links:
 + [React 安装](http://www.runoob.com/react/react-install.html)
 + [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
-+					(http://hao.jser.com/archive/8466/)
++ [REACTJS入门教程](http://hao.jser.com/archive/8466/)
 + [react-native-lesson](https://github.com/vczero/react-native-lesson)
 + [一看就懂的ReactJs入门教程（精华版）](http://www.cocoachina.com/webapp/20150721/12692.html)
 + [React 入门](http://segmentfault.com/a/1190000002759878)
 + [React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
 + [React中文文档](http://reactjs.cn/react/docs/getting-started.html)
-+ [React 入门教程]http://i5ting.github.io/reactjs-getting-start/#
-+ [React 入门教程]https://hulufei.gitbooks.io/react-tutorial/content/introduction.html
-
++ [React 入门教程](http://i5ting.github.io/reactjs-getting-start/)
++ [React 入门教程](https://hulufei.gitbooks.io/react-tutorial/content/introduction.html)
 + [React 入门教程]http://www.phperz.com/article/15/0712/140539.html
 + [使用React、Node.js、MongoDB、Socket.IO开发一个角色投票应用](http://www.kancloud.cn/kancloud/create-voting-app/63977)
